@@ -16,7 +16,7 @@ function App() {
     console.log(formData.get('file')); // Should show the File object
 
     try {
-      await fetch('http://localhost:3000/upload', {
+      await fetch(`${process.env.SERVICE_URL}/upload`, {
         method: 'POST',
         body: formData,
       });
@@ -32,7 +32,7 @@ function App() {
     setLoading(true);
     setAnswer('');
     try {
-      const res = await fetch(`http://localhost:3000/ask?q=${encodeURIComponent(question)}`,
+      const res = await fetch(`${process.env.SERVICE_URL}/ask?q=${encodeURIComponent(question)}`,
      {
       method: 'GET',
       headers: {
