@@ -18,8 +18,11 @@ app.use(cors({
     'https://chat-bot-open-api.vercel.app/'
 
   ],
+  methods: ["GET", "POST", "OPTIONS"],
   credentials: true
 }));
+
+
 
 // ✅ Upload Excel file and parse it
 app.post('/upload', upload.single('file'), (req, res) => {
