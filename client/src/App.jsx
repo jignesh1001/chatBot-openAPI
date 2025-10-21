@@ -32,10 +32,20 @@ function App() {
     setLoading(true);
     setAnswer('');
     try {
-      const res = await fetch(`http://localhost:3000/ask?q=${encodeURIComponent(question)}`);
+      const res = await fetch(`http://localhost:3000/ask?q=${encodeURIComponent(question)}`,
+     {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer your_token',
+        'Content-Type': 'application/json',
+      },
+      mode: 'cors', // Explicitly set mode to 'cors'
+      credentials: 'include', // If sending cookies or authorization headers
+    });
       const data = await res.json();
       setAnswer(data.answer);
     } catch (err) {
+      console.log(err)
       setAnswer('Error fetching answer');
     } finally {
       setLoading(false);
