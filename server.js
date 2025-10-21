@@ -13,7 +13,11 @@ let sheetJSON = [];
 
 // ✅ Allow only specific origin (React frontend)
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: [
+    'http://localhost:5173',
+    'https://chat-bot-open-api.vercel.app/'
+
+  ],
   credentials: true
 }));
 
