@@ -6,6 +6,7 @@ function App() {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
   const [loading, setLoading] = useState(false);
+  const appUrl = import.meta.env.VITE_SERVICE_URL;
 
   const handleFileUpload = async () => {
     console.log(file)
@@ -16,7 +17,7 @@ function App() {
     console.log(formData.get('file')); // Should show the File object
 
     try {
-      await fetch(`http://localhost:3000/upload`, {
+      await fetch(`${appUrl}/upload`, {
         method: 'POST',
         body: formData,
       });
@@ -33,7 +34,7 @@ function App() {
     setLoading(true);
     setAnswer('');
     try {
-      const res = await fetch(` http://localhost:3000/ask?q=${encodeURIComponent(question)}`,
+      const res = await fetch(`${appUrl}/ask?q=${encodeURIComponent(question)}`,
      {
       method: 'GET',
       headers: {
