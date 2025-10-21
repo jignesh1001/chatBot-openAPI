@@ -32,7 +32,7 @@ function App() {
     setLoading(true);
     setAnswer('');
     try {
-      const res = await fetch(`${process.env.SERVICE_URL}/ask?q=${encodeURIComponent(question)}`,
+      const res = await fetch(`${process.env.SERVICE_URL}ask?q=${encodeURIComponent(question)}`,
      {
       method: 'GET',
       headers: {
