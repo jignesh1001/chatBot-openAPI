@@ -12,7 +12,13 @@ const upload = multer({ dest: 'uploads/' });
 let sheetJSON = [];
 
 // ✅ Allow only specific origin (React frontend)
-app.use(cors());
+
+
+app.use(cors({
+  origin: 'http://localhost:5173', // replace with your frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true // if you use cookies or session
+}));
 
 
 
@@ -53,7 +59,7 @@ app.get('/ask', async (req, res) => {
       {
         headers: {
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-          'HTTP-Referer': 'http://localhost:5173 || http://localhost:3000' || 'https://chat-bot-open-api.vercel.app/',
+          'HTTP-Referer': 'http://localhost:5173'  || 'https://chat-bot-open-api.vercel.app/',
           'X-Title': 'Excel-QA-Bot'
         }
       }

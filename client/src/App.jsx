@@ -17,7 +17,7 @@ function App() {
     console.log(formData.get('file')); // Should show the File object
 
     try {
-      await fetch(`${appUrl || 'http://localhost:3000/'}/upload`, {
+      await fetch(`${appUrl || 'http://localhost:3000'}/upload`, {
         method: 'POST',
         body: formData,
       });
