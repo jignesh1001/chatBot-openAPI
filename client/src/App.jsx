@@ -16,12 +16,13 @@ function App() {
     console.log(formData.get('file')); // Should show the File object
 
     try {
-      await fetch(`${process.env.SERVICE_URL}/upload`, {
+      await fetch(`http://localhost:3000/upload`, {
         method: 'POST',
         body: formData,
       });
       alert('File uploaded and parsed!');
     } catch (err) {
+      console.log(err)
       alert('Upload failed');
     }
   };
@@ -32,7 +33,7 @@ function App() {
     setLoading(true);
     setAnswer('');
     try {
-      const res = await fetch(`${process.env.SERVICE_URL}ask?q=${encodeURIComponent(question)}`,
+      const res = await fetch(` http://localhost:3000/ask?q=${encodeURIComponent(question)}`,
      {
       method: 'GET',
       headers: {
