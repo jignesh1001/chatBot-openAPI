@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div className="App" style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h2>🧠 Excel QnA Bot</h2>
+      <h2>Excel Bot</h2>
 
       <input type="file" onChange={e => setFile(e.target.files[0])} />
       <button onClick={handleFileUpload} style={{ marginLeft: '10px' }}>
@@ -57,14 +57,14 @@ function App() {
           placeholder="Ask a question"
           value={question}
           onChange={e => setQuestion(e.target.value)}
-          style={{ width: '300px', marginRight: '10px' }}
+          style={{ width: '600px',height:'40px', marginRight: '10px',marginLeft: '100px' }}
         />
         <button onClick={handleAsk}>Ask</button>
       </div>
 
       {loading && <p>⏳ Thinking...</p>}
       {answer && (
-        <div style={{ marginTop: '1rem', background: 'black', padding: '1rem' }}>
+        <div style={{ marginTop: '1rem',  padding: '1rem' }}>
           <strong>Answer:</strong>
           <p className='text-black'>{answer}</p>
         </div>
