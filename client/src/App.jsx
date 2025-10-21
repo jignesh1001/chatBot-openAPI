@@ -59,7 +59,8 @@ function App() {
           onChange={e => setQuestion(e.target.value)}
           style={{ width: '600px',height:'40px', marginRight: '10px',marginLeft: '100px' }}
         />
-        <button onClick={handleAsk}>Ask</button>
+        {file && <button onClick={handleAsk}>Ask</button> }
+        
       </div>
 
       {loading && <p>⏳ Thinking...</p>}
