@@ -12,15 +12,7 @@ const upload = multer({ dest: 'uploads/' });
 let sheetJSON = [];
 
 // ✅ Allow only specific origin (React frontend)
-app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'https://chat-bot-open-api.vercel.app/'
-
-  ],
-  methods: ["GET", "POST", "OPTIONS"],
-  credentials: true
-}));
+app.use(cors());
 
 
 
